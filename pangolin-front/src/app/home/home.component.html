@@ -1,0 +1,57 @@
+﻿<style>
+    table {
+        border-collapse: collapse;
+        width: 90%;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        width: 20%;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    caption {
+        font-weight: bold
+    }
+</style>
+
+<div class="p-4">
+    <div class="container" align="center">
+        <h1>Email: {{user.email}}</h1>
+        <h3>Family: {{user.family}}</h3>
+        <h3>Food: {{user.food}}</h3>
+        <h3>Race: {{user.race}}</h3>
+    </div>
+    <div align="center">
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Family</th>
+                <th>Food</th>
+                <th>Race</th>
+                <th>Friend</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let friend of friends">
+                    <td>{{friend.id}}</td>
+                    <td>{{friend.email}}</td>
+                    <td>{{friend.family}}</td>
+                    <td>{{friend.food}}</td>
+                    <td>{{friend.race}}</td>
+                    <td>{{friend.isfriend}}</td>
+                    <button *ngIf="friend.isfriend === 'yes'" (click)="deleteFriend(friend.id)"
+                        class="btn btn-sm btn-danger btn-delete-user"> Delete friend
+                    </button>
+                    <button *ngIf="friend.isfriend === 'no'" (click)="addFriend(friend.id)"
+                        class="btn btn-sm btn-danger btn-delete-user"> Add friend
+                    </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="card">
+    <h4 class="card-header">Update</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="family">Family</label>
+                <input type="text" formControlName="family" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.family.errors }" />
+                <div *ngIf="submitted && f.family.errors" class="invalid-feedback">
+                    <div *ngIf="f.family.errors.required">Family is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="food">Food</label>
+                <input type="text" formControlName="food" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.food.errors }" />
+                <div *ngIf="submitted && f.food.errors" class="invalid-feedback">
+                    <div *ngIf="f.food.errors.required">Food is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="race">Race</label>
+                <input type="text" formControlName="race" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.race.errors }" />
+                <div *ngIf="submitted && f.race.errors" class="invalid-feedback">
+                    <div *ngIf="f.race.errors.required">Race is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Update
+                </button>
+                <a routerLink="../login" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
