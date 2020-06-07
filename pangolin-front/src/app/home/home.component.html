@@ -25,6 +25,7 @@
         <h3>Family: {{user.family}}</h3>
         <h3>Food: {{user.food}}</h3>
         <h3>Race: {{user.race}}</h3>
+        <h3>Age: {{user.age}}</h3>
     </div>
     <div align="center">
         <table>
@@ -34,6 +35,7 @@
                 <th>Family</th>
                 <th>Food</th>
                 <th>Race</th>
+                <th>Age</th>
                 <th>Friend</th>
             </thead>
             <tbody>
@@ -43,6 +45,7 @@
                     <td>{{friend.family}}</td>
                     <td>{{friend.food}}</td>
                     <td>{{friend.race}}</td>
+                    <td>{{friend.age}}</td>
                     <td>{{friend.isfriend}}</td>
                     <button *ngIf="friend.isfriend === 'yes'" (click)="deleteFriend(friend.id)"
                         class="btn btn-sm btn-danger btn-delete-user"> Delete friend

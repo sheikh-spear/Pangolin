@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
       food: ["", Validators.required],
       race: ["", Validators.required],
       email: ["", Validators.required],
+      age: ["", Validators.required],
       password: ["", [Validators.required, Validators.minLength(1)]],
       password_repeat: ["", [Validators.required, Validators.minLength(1)]]
     });

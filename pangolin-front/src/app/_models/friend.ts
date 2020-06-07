@@ -4,5 +4,6 @@ export class Friend {
   family: string;
   food: string;
   race: string;
+  age: number;
   isfriend: string;
 }

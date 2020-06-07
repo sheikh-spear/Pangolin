@@ -32,7 +32,8 @@ export class EditComponent implements OnInit {
     this.form = this.formBuilder.group({
       family: ["", Validators.required],
       food: ["", Validators.required],
-      race: ["", Validators.required]
+      race: ["", Validators.required],
+      age: ["", Validators.required]
     });
   }
 
@@ -44,7 +45,8 @@ export class EditComponent implements OnInit {
     console.log(
       this.form.controls["food"].value,
       this.form.controls["family"].value,
-      this.form.controls["race"].value
+      this.form.controls["race"].value,
+      this.form.controls["age"].value
     );
     this.submitted = true;
     this.alertService.clear();
@@ -56,7 +58,8 @@ export class EditComponent implements OnInit {
       .update(
         this.form.controls["food"].value,
         this.form.controls["family"].value,
-        this.form.controls["race"].value
+        this.form.controls["race"].value,
+        this.form.controls["age"].value
       )
       .pipe(first())
       .subscribe(

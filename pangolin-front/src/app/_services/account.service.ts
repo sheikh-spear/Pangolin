@@ -40,17 +40,19 @@ export class AccountService {
       );
   }
 
-  update(pfood, pfamily, prace) {
+  update(pfood, pfamily, prace, page) {
     console.log({
       food: pfood,
       family: pfamily,
-      race: prace
+      race: prace,
+      age: page
     });
     return this.http
       .post<User>(`${environment.apiUrl}/update`, {
         food: pfood,
         family: pfamily,
-        race: prace
+        race: prace,
+        age: page
       })
       .pipe(
         map(user => {

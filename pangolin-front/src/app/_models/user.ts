@@ -4,6 +4,7 @@
     password: string;
     family: string;
     food: string;
-    race: string
+    race: string;
+    age: number;
     token: string;
 }
