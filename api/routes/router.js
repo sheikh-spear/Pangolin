@@ -12,8 +12,6 @@ const jwt = require("jsonwebtoken");
 const jwtKey = "THIS IS SPARTAAAAA!!!!!";
 const jwtExpirySeconds = 30000000;
 
-router.get("/me", async (req, res) => {});
-
 router.get("/everybody", async (req, res) => {
   try {
     var token;
