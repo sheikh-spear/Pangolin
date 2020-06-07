@@ -3,6 +3,7 @@ const ObjectID = require("mongodb").ObjectID;
 var crypto = require("crypto");
 const f = require("util").format;
 const log = require("../debug/logger.js");
+const regex = require("../helpers/regex.js");
 
 const DbUrl =
   "mongodb+srv://sheikh-spear:hjk@cluster0-sgf82.mongodb.net/test?retryWrites=true&w=majority";
@@ -170,8 +171,6 @@ function login(form, next) {
           throw error;
         }
         if (results) {
-          console.log(results);
-          console.log(form);
           if (
             results.password ===
             crypto.createHash("md5").update(form.password).digest("hex")
@@ -196,6 +195,8 @@ function register(form, next) {
         if (results) {
           next("Email already exists", next);
           return;
+        } else if (!regex.validateEmail(form.email)) {
+          next("Please give me a valid email address", null);
         } else if (form.password !== form.password_repeat) {
           next("Passwords do not match", null);
           return;

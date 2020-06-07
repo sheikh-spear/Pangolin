@@ -7,6 +7,7 @@ import { map } from "rxjs/operators";
 import { environment } from "@environments/environment";
 import { User } from "@app/_models";
 import { Friend } from "@app/_models";
+import { RegisterResponse } from "@app/_models";
 
 @Injectable({ providedIn: "root" })
 export class AccountService {
@@ -29,6 +30,9 @@ export class AccountService {
       .post<User>(`${environment.apiUrl}/login`, { email, password })
       .pipe(
         map(user => {
+          if (user.token === undefined) {
+            throw "login failed";
+          }
           localStorage.setItem("user", JSON.stringify(user));
           this.userSubject.next(user);
           return user;
@@ -92,7 +96,13 @@ export class AccountService {
   }
 
   register(user: User) {
-    return this.http.post(`${environment.apiUrl}/register`, user);
+    return this.http.post<RegisterResponse>(`${environment.apiUrl}/register`, user).pipe(
+      map(u => {
+        if (u.status === 500) {
+          throw u.message;
+        }
+      })
+    );
   }
 
   getAll() {
