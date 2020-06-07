@@ -5,7 +5,7 @@ const uuid = require("uuid");
 const fetch = require("node-fetch");
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
-const users = require("../db/findUser.js");
+const users = require("../db/user.js");
 const log = require("../debug/logger.js");
 const jwt = require("jsonwebtoken");
 
