@@ -40,6 +40,7 @@ function markBefriendedPangolins(id, next) {
           family: e.family,
           food: e.food,
           race: e.race,
+          age: e.age,
           isfriend: "no"
         };
         for (let index = 0; index < r.friends.length; index++) {

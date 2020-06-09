@@ -1,16 +1,14 @@
 FROM node:latest
 
 ADD ./ /usr/src/front
+
 WORKDIR /usr/src/front
 
-EXPOSE 4200
-
-RUN npm install -g @angular/cli
+EXPOSE 4200/tcp
 
 RUN npm i
 
-RUN npm audit fix
+RUN npm install -g @angular/cli@9.1.3
 
-RUN ls -l
 
-RUN cd /usr/src/front && ng serve
+CMD ["ng", "serve", "--open"]

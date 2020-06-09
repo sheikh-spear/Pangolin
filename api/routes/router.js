@@ -48,7 +48,6 @@ router.get("/everybody", async (req, res) => {
 });
 
 router.get("/friends", async (req, res) => {
-  console.log("heyyy");
   try {
     var token;
     try {
@@ -107,7 +106,8 @@ router.post("/login", async (req, res) => {
           email: user.email,
           family: user.family,
           food: user.food,
-          race: user.race
+          race: user.race,
+          age: user.age
         });
       }
     });
@@ -179,6 +179,7 @@ router.post("/update", async (req, res) => {
           food: r.food,
           family: r.family,
           race: r.race,
+          age: r.age,
           token: req.headers.token
         });
       }

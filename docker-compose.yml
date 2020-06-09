@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api:
+    build: ./api
+    container_name: 'pangolin-api'
+    ports:
+      - 8080:8080
+    stdin_open: true
+    restart: on-failure
+    volumes:
+      - ./api:/usr/src/back
+  pangolin-front:
+    build: ./pangolin-front
+    container_name: 'pangolin-front'
+    ports: 
+      - 4200:4201
+    stdin_open: true
+    restart: on-failure
+    volumes: 
+      - ./pangolin-front:/usr/src/front
